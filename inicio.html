@@ -5,30 +5,41 @@
   <style>
     /* Estilo para centrar el título */
     h1 {
-       text-align: center;
-      font-family: 'Reboto', sans-serif;
-      font-weight: bolder;
-      font-size: 200px;
+      text-align: center;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 900;
+      font-size: 50px;
       color: #000000;
-      margin-top: 250px;
+      font-style: italic;
+      margin-top: 10px;
     }
+
+    /* Estilo para la flecha */
+    img {
+      width: 100px;
+      height: 50px;
+      background-image: url('flecha.jpeg');
+    }
+
     /* Agregar una imagen de fondo */
     body {
-      background-image: url('fondo.png');
-      background-size: contain;
+      background-image: url('background.jpg');
        background-size: cover;
       background-repeat: no-repeat;
     }
   </style>
+
+
 </head>
 
 <body>
   <h1>Pet Feeder</h1>
- <div class="container">
-  <h1>Alimentador Automático de Peces</h1>
+  <div class="button-container">
+    <input type="button" class="button" onclick="feedFish()" value="Comida" />
+  </div>
   <a href="https://krp82.github.io/proyecto.github.io/alimentador">
-    <img src="flecha.jpeg" alt="Ir a otra página" />
+    <img src="flecha.jpeg" alt="Ir a otra página" width="100" height="50" />
   </a>
-</div>
 </body>
 </html>
+
