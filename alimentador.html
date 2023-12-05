@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    /* Estilo para centrar el título */
+    h1 {
+      text-align: left;
+      font-family: 'Arial Black', sans-serif;
+    }
+
+    /* Estilo para centrar los botones e imagen a la izquierda */
+    .button-container {
+      text-align: left; /* Alinea el texto a la izquierda */
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start; /* Alinea los elementos hijos a la izquierda */
+    }
+
+    /* Estilo para los botones con separación */
+    .custom-button {
+      margin-top: 10px; /* Espacio superior para separación */
+    }
+
+    /* Agregar una imagen de fondo */
+    body {
+      background-image: url('fondo.png');
+      background-size: cover; /* Ajusta la imagen de fondo para que cubra toda la pantalla */
+      background-repeat: no-repeat; /* Evita que la imagen se repita */
+    }
+  </style>
+
+  <script>
+    var accessToken = "f20bc40a434b3add9d90b1a3fda14922af0eaf43";
+    var deviceID = "3b001b001547313036303933";
+    var url = "https://api.particle.io/v1/devices/" + deviceID + "/control";
+
+    function feedFish() {
+      $.post(url, { params: "on", access_token: accessToken })
+        .done(function (response) {
+          if (response.return_value == 1) {
+            // Se activa servomotor
+            alert("Sirviendo alimento");
+          } else if (response.return_value == 0) {
+            // algo salio mal
+            alert("Error");
+          }
+        });
+    }
+  </script>
+</head>
+
+<body>
+  <h1>Alimentador Automático de Peces</h1>
+  <div class="button-container">
+    <input type="button" class="custom-button" onclick="feedFish()" value="Comida" />
+  </div>
+</body>
+</html>ton" onclick="feedFish()" value="Comida" />
+  </div>
+</body>
+</html>
