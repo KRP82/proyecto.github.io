@@ -35,7 +35,7 @@
 
     /* Agregar una imagen de fondo */
     body {
-      background-image: url('fondo.png');
+      background-image: url('fondo2.png');
       background-size: contain;
       background-size: cover;
       background-repeat: no-repeat;
@@ -47,7 +47,7 @@
     var deviceID = "3b001b001547313036303933";
     var url = "https://api.particle.io/v1/devices/" + deviceID + "/control";
 
-    function feedFish() {
+    function feed() {
       $.post(url, { params: "on", access_token: accessToken })
         .done(function (response) {
           if (response.return_value == 1) {
@@ -65,7 +65,7 @@
 <body>
   <h1>Pet Feeder</h1>
   <div class="button-container">
-    <input type="button" class="custom-button" onclick="feedFish()" value="Comida" />
+    <input type="button" class="custom-button" onclick="feed()" value="Comida" />
   </div>
 </body>
 </html>
