@@ -11,54 +11,81 @@
       text-align: center;
       font-family: 'Arial', sans-serif;
       font-weight: bolder;
-      margin-top: 50px; /* Reduce margin for mobiles */
+      font-size: 120px;
+      color: #000000;
+      margin-top: 80px;
     }
 
-    /* Estilo para la flecha */
-    img {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translate(-50%);
-      width: 100px;
-      height: 50px; /* Reduce arrow size for mobiles */
-      background-image: url('flecha.jpeg');
-      background-align: center;
+    /* Estilo para el botón con bordes circulares */
+    .custom-button {
+      background-color: #000000;
+      color: #FFFFFF;
+      font-size: 30px;
+      font-family: 'Arial', sans-serif;
+      font-weight: bold;
+      padding: 20px 40px;
+      border-radius: 50px; /* Bordes circulares */
+      cursor: pointer;
     }
 
-    /* Agregar una imagen de fondo */
+    /* Estilo para centrar el contenedor del botón */
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+         /* Agregar una imagen de fondo */
     body {
       background-image: url('fondo_movil.png');
       background-size: cover;
       background-repeat: no-repeat;
     }
 
-    /* Styles for mobile view */
+    
+
     @media only screen and (max-width: 768px) {
+      /* Styles for mobile view */
+
       h1 {
-        text-align: center;
-      font-family: 'Arial', sans-serif;
-      font-weight: bolder;
-        font-size: 120px; /* Reduce title size for smaller screens */
+        font-size: 60px; /* reduce font size for smaller screens */
       }
 
-      img {
-       position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translate(-50%);
-      width: 100px;
-      height: 50px; /* Reduce arrow size for mobiles */
-      background-image: url('flecha.jpeg');
-      background-align: center; 
+      .custom-button {
+        font-size: 20px; /* reduce button font size */
+      }
+
+      .button-container {
+        flex-direction: column-reverse; /* place button above title on mobiles */
       }
     }
   </style>
 </head>
 <body>
   <h1>Pet Feeder</h1>
-  <a href="https://krp82.github.io/proyecto.github.io/alimentador_movil">
-  <img src="flecha.jpeg" alt="Ir a otra página" />
-  </a>
+
+  <div class="button-container">
+    <input type="button" class="custom-button" onclick="feed()" value="Comida" />
+  </div>
+
+  <script>
+    var accessToken = "f20bc40a434b3add9d90b1a3fda14922af0eaf43";
+    var deviceID = "3b001b001547313036303933";
+    var url = "https://api.particle.io/v1/devices/" + deviceID + "/control";
+
+    function feed() {
+      $.post(url, { params: "on", access_token: accessToken })
+        .done(function (response) {
+          if (response.return_value == 1) {
+            // Se activa servomotor
+            alert("Sirviendo alimento");
+          } else if (response.return_value == 0) {
+            // algo salio mal
+            alert("Error");
+          }
+        });
+    }
+  </script>
 </body>
 </html>
+
