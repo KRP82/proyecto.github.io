@@ -1,9 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pet Feeder</title>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <style>
     /* Estilo para centrar el título */
@@ -13,79 +10,37 @@
       font-weight: bolder;
       font-size: 120px;
       color: #000000;
-      margin-top: 80px;
+      margin-top: 120px;
     }
-
-    /* Estilo para el botón con bordes circulares */
-    .custom-button {
-      background-color: #000000;
-      color: #FFFFFF;
-      font-size: 30px;
-      font-family: 'Arial', sans-serif;
-      font-weight: bold;
-      padding: 20px 40px;
-      border-radius: 50px; /* Bordes circulares */
-      cursor: pointer;
-    }
-
-    /* Estilo para centrar el contenedor del botón */
-    .button-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-         /* Agregar una imagen de fondo */
-    body {
-      background-image: url('fondo_movil.png');
-      background-size: cover;
-      background-repeat: no-repeat;
-    }
-
     
 
-    @media only screen and (max-width: 768px) {
-      /* Styles for mobile view */
+    /* Estilo para la flecha */
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 200px;
+      height: 100px;
+      background-image: url('flecha.jpeg');
+      background-align: center;
+    }
 
-      h1 {
-        font-size: 60px; /* reduce font size for smaller screens */
-      }
-
-      .custom-button {
-        font-size: 20px; /* reduce button font size */
-      }
-
-      .button-container {
-        flex-direction: column-reverse; /* place button above title on mobiles */
-      }
+    /* Agregar una imagen de fondo */
+    body {
+      background-image: url('fondo_movil.png');
+       background-size: cover;
+      background-repeat: no-repeat;
     }
   </style>
+
+
 </head>
+
 <body>
   <h1>Pet Feeder</h1>
-
-  <div class="button-container">
-    <input type="button" class="custom-button" onclick="feed()" value="Comida" />
-  </div>
-
-  <script>
-    var accessToken = "f20bc40a434b3add9d90b1a3fda14922af0eaf43";
-    var deviceID = "3b001b001547313036303933";
-    var url = "https://api.particle.io/v1/devices/" + deviceID + "/control";
-
-    function feed() {
-      $.post(url, { params: "on", access_token: accessToken })
-        .done(function (response) {
-          if (response.return_value == 1) {
-            // Se activa servomotor
-            alert("Sirviendo alimento");
-          } else if (response.return_value == 0) {
-            // algo salio mal
-            alert("Error");
-          }
-        });
-    }
-  </script>
+  <a href="https://krp82.github.io/proyecto.github.io/alimentador">
+  <img src="flecha.jpeg" alt="Ir a otra página" />
+  </a>
 </body>
 </html>
-
