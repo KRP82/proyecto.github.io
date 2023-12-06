@@ -36,12 +36,21 @@
     /* Styles for mobile view */
     @media only screen and (max-width: 768px) {
       h1 {
-        font-size: 60px; /* Reduce title size for smaller screens */
+        text-align: center;
+      font-family: 'Arial', sans-serif;
+      font-weight: bolder;
+        font-size: 120px; /* Reduce title size for smaller screens */
       }
 
       img {
-        width: 50px;
-        height: 25px; /* Further reduce arrow size for mobiles */
+       position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translate(-50%);
+      width: 100px;
+      height: 50px; /* Reduce arrow size for mobiles */
+      background-image: url('flecha.jpeg');
+      background-align: center; 
       }
     }
   </style>
