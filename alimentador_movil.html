@@ -85,6 +85,46 @@
             alert("Error");
           }
         });
+
+
+      // Obtener el estado del sensor de peso
+    function getWeightStatus() {
+      // Leer los datos del sensor de peso
+      // ...
+
+      // Devolver el estado de peso
+      return (peso > 300) ? "lleno" : "vacío";
+    }
+
+    // Actualizar el estado del peso en la UI
+    function updateWeightStatus(status) {
+      document.getElementById("peso-estado").innerText = `Estado del peso: ${status}`;
+    }
+
+    // Mostrar una alerta cuando el plato esté vacío
+    function showAlert() {
+      alert("El plato está vacío.");
+    }
+
+    // Bucle infinito para leer los datos del sensor
+    while (true) {
+      // Obtener el estado del peso
+      const pesoStatus = getWeightStatus();
+
+      // Actualizar el estado del peso en la UI
+      updateWeightStatus(pesoStatus);
+
+      // Si el plato está vacío, mostrar una alerta
+      if (pesoStatus === "vacío") {
+        showAlert();
+      }
+
+      // Retrasar un poco para evitar sobrecargar el sensor
+      setTimeout(() => {
+        // ...
+      }, 1000);
+    }
+  </script>
     }
   </script>
 </body>
