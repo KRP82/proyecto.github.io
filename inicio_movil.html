@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pet Feeder</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    /* Estilo para centrar el título */
+    h1 {
+      text-align: center;
+      font-family: 'Arial', sans-serif;
+      font-weight: bolder;
+      margin-top: 50px; /* Reduce margin for mobiles */
+    }
+
+    /* Estilo para la flecha */
+    img {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translate(-50%);
+      width: 100px;
+      height: 50px; /* Reduce arrow size for mobiles */
+      background-image: url('flecha.jpeg');
+      background-align: center;
+    }
+
+    /* Agregar una imagen de fondo */
+    body {
+      background-image: url('fondo.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    /* Styles for mobile view */
+    @media only screen and (max-width: 768px) {
+      h1 {
+        font-size: 60px; /* Reduce title size for smaller screens */
+      }
+
+      img {
+        width: 50px;
+        height: 25px; /* Further reduce arrow size for mobiles */
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Pet Feeder</h1>
+  <a href="https://krp82.github.io/proyecto.github.io/alimentador_movil">
+  <img src="flecha.jpeg" alt="Ir a otra página" />
+  </a>
+</body>
+</html>
