@@ -1,9 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pet Feeder</title>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <style>
     /* Estilo para centrar el título */
@@ -26,48 +23,24 @@
       padding: 20px 40px;
       border-radius: 50px; /* Bordes circulares */
       cursor: pointer;
-        margin-top: 200px;
     }
 
     /* Estilo para centrar el contenedor del botón */
     .button-container {
+      text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
-         /* Agregar una imagen de fondo */
     /* Agregar una imagen de fondo */
     body {
       background-image: url('fondo_movil.png');
-       background-size: cover;
+      background-size: contain;
+      background-size: cover;
       background-repeat: no-repeat;
     }
-    
-
-    @media only screen and (max-width: 768px) {
-      /* Styles for mobile view */
-
-      h1 {
-        font-size: 60px; /* reduce font size for smaller screens */
-      }
-
-      .custom-button {
-        font-size: 20px; /* reduce button font size */
-      }
-
-      .button-container {
-        flex-direction: column-reverse; /* place button above title on mobiles */
-      }
-    }
   </style>
-</head>
-<body>
-  <h1>Pet Feeder</h1>
-
-  <div class="button-container">
-    <input type="button" class="custom-button" onclick="feed()" value="Comida" />
-  </div>
 
   <script>
     var accessToken = "f20bc40a434b3add9d90b1a3fda14922af0eaf43";
@@ -85,46 +58,14 @@
             alert("Error");
           }
         });
-
-
-      // Obtener el estado del sensor de peso
-    function getWeightStatus() {
-      // Leer los datos del sensor de peso
-      // ...
-
-      // Devolver el estado de peso
-      return (peso > 300) ? "lleno" : "vacío";
-    }
-
-    // Actualizar el estado del peso en la UI
-    function updateWeightStatus(status) {
-      document.getElementById("peso-estado").innerText = `Estado del peso: ${status}`;
-    }
-
-    // Mostrar una alerta cuando el plato esté vacío
-    function showAlert() {
-      alert("El plato está vacío.");
-    }
-
-    // Bucle infinito para leer los datos del sensor
-    while (true) {
-      // Obtener el estado del peso
-      const pesoStatus = getWeightStatus();
-
-      // Actualizar el estado del peso en la UI
-      updateWeightStatus(pesoStatus);
-
-      // Si el plato está vacío, mostrar una alerta
-      if (pesoStatus === "vacío") {
-        showAlert();
-      }
-
-      // Retrasar un poco para evitar sobrecargar el sensor
-      setTimeout(() => {
-        // ...
-      }, 1000);
     }
   </script>
-    }
-  </script>
+</head>
+
+<body>
+  <h1>Pet Feeder</h1>
+  <div class="button-container">
+    <input type="button" class="custom-button" onclick="feed()" value="Comida" />
+  </div>
 </body>
+</html>
